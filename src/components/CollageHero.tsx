@@ -44,7 +44,7 @@ export default function CollageHero() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="max-w-[720px] font-roboto-condensed font-bold text-[#222222] text-[28px] sm:text-[32px] md:text-[42px] uppercase leading-tight tracking-[-0.02em]"
+              className="max-w-[720px] font-roboto-condensed font-bold text-[#222222] text-[24px] xs:text-[28px] sm:text-[32px] md:text-[36px] lg:text-[42px] uppercase leading-tight md:leading-[1.02] lg:leading-[1.05] tracking-[-0.02em]"
             >
               LOREM IPSUM DOLOR SIT AMET
             </motion.h2>
@@ -54,7 +54,7 @@ export default function CollageHero() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.06 }}
-              className="mt-4 max-w-[760px] text-base md:text-lg leading-[25px]"
+              className="mt-4 max-w-[760px] text-sm xs:text-base sm:text-lg md:text-lg leading-[1.4] xs:leading-[1.5] sm:leading-[25px]"
             >
               Lorem ipsum dolor sit amet consectetur. Nisl faucibus vitae
               porttitor pharetra tempor quis arcu. Ipsum nullam.
@@ -66,16 +66,13 @@ export default function CollageHero() {
               transition={{ delay: 0.12 }}
               className="mt-8"
             >
-              <Button
-                size="lg"
-                className="bg-[#1959AC] hover:bg-[#154A8C] shadow-[0px_4px_20px_0px_#00000026] px-6 py-3 rounded text-white"
-              >
+              <Button className="bg-[#1959AC] hover:bg-[#154A8C] px-4 xs:px-5 sm:px-6 py-2.5 xs:py-3 rounded text-white text-sm xs:text-base">
                 Loerum Ipsum &nbsp;→
               </Button>
             </motion.div>
           </div>
         </div>
-        <div className="hidden md:block relative bg-[#F1F5F9] w-screen h-[700px] overflow-hidden">
+        <div className="hidden md:block relative bg-[#F1F5F9] min-w-screen h-[700px] overflow-hidden">
           <Image
             src="/grouped_bike.webp"
             alt="Collage background"
@@ -92,7 +89,7 @@ export default function CollageHero() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="font-roboto-condensed font-bold text-[#222222] text-[28px] sm:text-[32px] md:text-[42px] uppercase leading-tight tracking-[-0.02em]"
+              className="font-roboto-condensed font-bold text-[#222222] text-[24px] xs:text-[28px] sm:text-[32px] md:text-[36px] lg:text-[42px] uppercase leading-tight md:leading-[1.02] lg:leading-[1.05] tracking-[-0.02em]"
             >
               LOREM IPSUM DOLOR SIT AMET
             </motion.h2>
@@ -102,7 +99,7 @@ export default function CollageHero() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.06 }}
-              className="text-base md:text-lg leading-[25px]"
+              className="text-sm xs:text-base sm:text-lg md:text-lg leading-[1.4] xs:leading-[1.5] sm:leading-[25px]"
             >
               Lorem ipsum dolor sit amet consectetur. Nisi faucibus vitae
               porttitor pharetra tempor quis arcu. Ipsum nullam.
@@ -115,7 +112,7 @@ export default function CollageHero() {
             >
               <Button
                 size="lg"
-                className="bg-[#1959AC] hover:bg-[#154A8C] shadow-[0px_4px_20px_0px_#00000026] px-6 py-3 rounded text-white"
+                className="bg-[#1959AC] hover:bg-[#154A8C] px-4 xs:px-5 sm:px-6 py-2.5 xs:py-3 rounded text-white text-sm xs:text-base"
               >
                 Loerum Ipsum &nbsp;→
               </Button>
@@ -124,7 +121,7 @@ export default function CollageHero() {
         </div>
       </section>
 
-      <section className="relative bg-[#F8F8F8] w-full md:w-[95%]">
+      <section className="relative bg-[#F8F8F8] w-full lg:w-[95%]">
         <div className="mx-auto px-6 md:px-12 py-12 md:py-20 md:pl-0 container">
           <motion.div
             variants={container}
@@ -147,16 +144,16 @@ export default function CollageHero() {
             </motion.div>
 
             <motion.div variants={item} className="lg:col-span-7">
-              <p className="mb-3 font-semibold text-[#0546D2] text-xl sm:text-2xl tracking-[-0.04em]">
+              <p className="mb-2 xs:mb-3 font-semibold text-[#0546D2] text-lg xs:text-xl sm:text-2xl tracking-[-0.04em]">
                 Lorem ipsum
               </p>
 
-              <h2 className="mb-5 font-roboto-condensed font-bold text-[#222222] text-[28px] sm:text-[32px] md:text-[42px] uppercase leading-tight tracking-[-0.02em]">
+              <h2 className="mb-4 xs:mb-5 font-roboto-condensed font-bold text-[#22222] text-[24px] xs:text-[28px] sm:text-[32px] md:text-[36px] lg:text-[42px] uppercase leading-tight md:leading-[1.02] lg:leading-[1.05] tracking-[-0.02em]">
                 <span className="text-[#1959AC]">LOREM</span> IPSUM DOLOR SIT
                 AMET CONSECTETUR. ENIM DONEC.
               </h2>
 
-              <p className="mb-8 max-w-xl text-base md:text-lg leading-[25px]">
+              <p className="mb-6 xs:mb-8 max-w-xl text-sm xs:text-base sm:text-lg md:text-lg leading-[1.4] xs:leading-[1.5] sm:leading-[25px]">
                 Lorem ipsum dolor sit amet consectetur. Vel pellentesque odio
                 enim amet non.
               </p>
@@ -175,10 +172,10 @@ export default function CollageHero() {
                 </ul>
               </div>
 
-              <div className="mt-4">
+              <div className="mt-3 xs:mt-4">
                 <Button
                   size="lg"
-                  className="bg-[#1959AC] hover:bg-[#154A8C] shadow-md px-6 py-3 rounded text-white"
+                  className="bg-[#1959AC] hover:bg-[#154A8C] shadow-md px-4 xs:px-5 sm:px-6 py-2.5 xs:py-3 rounded text-white text-sm xs:text-base"
                   aria-label="Learn more"
                 >
                   Loerum Ipsum &nbsp;→

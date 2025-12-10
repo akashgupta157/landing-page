@@ -124,7 +124,7 @@
 }
 
 .clip-diagonal {
-  clip-path: polygon(28% 0, 100% 0, 100% 100%, 0% 100%);
+  clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
 }
 
 .custom-plus-minus {

@@ -14,9 +14,21 @@ import {
 } from "./ui/sheet";
 
 const NAV_ITEMS = [
-  { label: "Lorem Ipsum", href: "#" },
-  { label: "Lorem Ipsum", href: "#" },
-  { label: "Lorem Ipsum", href: "#" },
+  {
+    label: "Lorem Ipsum",
+    href: "#",
+    submenu: ["Option A", "Option B", "Option C"],
+  },
+  {
+    label: "Lorem Ipsum",
+    href: "#",
+    submenu: ["Option D", "Option E"],
+  },
+  {
+    label: "Lorem Ipsum",
+    href: "#",
+    submenu: ["Option F", "Option G", "Option H"],
+  },
 ];
 
 export default function Navbar() {
@@ -58,8 +70,8 @@ export default function Navbar() {
       }}
       className="top-0 right-0 left-0 z-40 fixed"
     >
-      <div className="mx-auto px-6 md:px-16 max-w-screen">
-        <div className="flex justify-between items-center h-16 md:h-20">
+      <div className="mx-auto px-6 lg:px-16 max-w-screen">
+        <div className="flex justify-between items-center h-14 sm:h-16 md:h-20">
           <motion.div
             initial={{ opacity: 0, x: -8 }}
             animate={{ opacity: 1, x: 0 }}
@@ -67,7 +79,7 @@ export default function Navbar() {
             className="flex items-center"
           >
             <div
-              className="bg-[#DBDBDB] px-4 sm:px-5 py-2 w-fit font-extrabold text-xl sm:text-2xl tracking-[-0.02em]"
+              className="bg-[#DBDBDB] px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 w-fit font-extrabold text-lg sm:text-xl md:text-2xl tracking-[-0.02em]"
               aria-hidden
               role="img"
             >
@@ -75,32 +87,28 @@ export default function Navbar() {
             </div>
           </motion.div>
 
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-6 lg:gap-8">
             <motion.ul
               initial="hidden"
               animate="visible"
-              className="flex items-center gap-8"
+              className="flex items-center gap-6 lg:gap-8"
             >
               {NAV_ITEMS.map((item, i) => (
                 <motion.li
                   key={i}
                   custom={i}
                   variants={linkVariants}
-                  className="flex items-center gap-1 font-medium text-[#1959AC] hover:text-[#154A8C] md:text-lg cursor-pointer"
+                  className="relative flex items-center gap-1 font-medium text-[#1959AC] hover:text-[#154A8C] md:text-base lg:text-lg cursor-pointer"
                 >
-                  <Link
-                    href={item.href}
-                    className="inline-flex items-center gap-1"
-                  >
-                    {item.label} <ChevronDown className="w-4 h-4" />
-                  </Link>
+                  <NavItemWithHover item={item} index={i} />
                 </motion.li>
               ))}
             </motion.ul>
           </nav>
 
+          {/* Desktop sign-in */}
           <div className="hidden md:flex items-center gap-4">
-            <Button className="bg-white hover:bg-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.12)] px-8 py-2 rounded font-bold text-black transition-colors">
+            <Button className="bg-white hover:bg-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.12)] px-6 sm:px-8 py-2 rounded font-bold text-black text-sm transition-colors">
               Sign In
             </Button>
           </div>
@@ -152,6 +160,19 @@ export default function Navbar() {
                         >
                           {item.label}
                         </Link>
+                        {item.submenu && item.submenu.length > 0 && (
+                          <div className="mt-2 pl-3">
+                            {item.submenu.map((s, si) => (
+                              <Link
+                                key={si}
+                                href="#"
+                                className="block hover:bg-[#f7faff] px-2 py-1 rounded text-[#154A8C] text-sm"
+                              >
+                                {s}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
                       </motion.li>
                     ))}
                   </ul>
@@ -168,6 +189,64 @@ export default function Navbar() {
         </div>
       </div>
     </motion.header>
+  );
+}
+
+interface NavItem {
+  label: string;
+  href: string;
+  submenu?: string[];
+}
+
+function NavItemWithHover({ item, index }: { item: NavItem; index: number }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+      onFocus={() => setOpen(true)}
+      onBlur={() => setOpen(false)}
+      className="relative"
+    >
+      <Link
+        href={item.href}
+        className="inline-flex items-center gap-1 focus:outline-none"
+        aria-haspopup={item.submenu ? "menu" : undefined}
+        aria-expanded={open ? "true" : "false"}
+      >
+        <span>{item.label}</span>
+        <ChevronDown className="w-4 h-4" aria-hidden />
+      </Link>
+
+      {item.submenu && item.submenu.length > 0 && (
+        <motion.div
+          initial={{ opacity: 0, y: 6, pointerEvents: "none" }}
+          animate={
+            open
+              ? { opacity: 1, y: 0, pointerEvents: "auto" }
+              : { opacity: 0, y: 6, pointerEvents: "none" }
+          }
+          transition={{ duration: 0.18, ease: easeOut }}
+          className="top-full left-0 absolute bg-white shadow-lg mt-3 rounded-lg ring-1 ring-black/5 w-48"
+          role="menu"
+        >
+          <ul className="py-2">
+            {item.submenu.map((sub: string, si: number) => (
+              <li key={si} role="none">
+                <Link
+                  href="#"
+                  role="menuitem"
+                  className="block hover:bg-[#F3F7FF] px-3 py-2 font-medium text-[#154A8C] text-sm"
+                >
+                  {sub}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
+      )}
+    </div>
   );
 }
 

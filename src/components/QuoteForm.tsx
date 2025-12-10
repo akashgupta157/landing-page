@@ -96,7 +96,7 @@ export default function QuoteForm() {
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
         variants={container}
-        className="relative flex justify-center items-center my-10 md:my-36 w-full min-h-[400px] md:min-h-[600px] overflow-hidden"
+        className="relative flex justify-center items-center my-8 xs:my-10 sm:my-12 md:my-24 lg:my-32 xl:my-36 w-full min-h-[300px] xs:min-h-[350px] sm:min-h-[400px] md:min-h-[500px] lg:min-h-[550px] xl:min-h-[600px] overflow-hidden"
         aria-label="Hero section"
       >
         <div className="-z-10 absolute inset-0">
@@ -111,9 +111,9 @@ export default function QuoteForm() {
           <div className="absolute inset-0 bg-linear-to-b from-[rgba(0,0,0,0.6)] via-[rgba(0,0,0,0.45)] to-[rgba(0,0,0,0.55)]" />
         </div>
 
-        <div className="top-4 sm:top-6 md:top-10 left-4 sm:left-6 md:left-12 z-20 absolute">
+        <div className="top-3 xs:top-4 sm:top-6 md:top-8 lg:top-10 xl:top-12 left-3 xs:left-4 sm:left-6 md:left-10 lg:left-12 xl:left-16 z-20 absolute">
           <div
-            className="bg-[#DBDBDB] px-4 sm:px-6 py-2 sm:py-2.5 font-extrabold text-xl sm:text-2xl md:text-3xl tracking-[-0.02em]"
+            className="bg-[#DBDBDB] px-3 xs:px-4 sm:px-6 py-1.5 sm:py-2 font-extrabold xs:text-xl sm:text-2xl md:text-3xl tracking-[-0.02em]"
             aria-hidden
             role="img"
           >
@@ -123,33 +123,33 @@ export default function QuoteForm() {
 
         <motion.div
           variants={content}
-          className="mx-auto px-4 sm:px-6 md:px-12 max-w-4xl text-center container"
+          className="mx-auto px-3 xs:px-4 sm:px-6 md:px-10 lg:px-12 xl:px-16 max-w-3xl lg:max-w-4xl text-center container"
         >
-          <h1 className="px-2 font-roboto-condensed font-bold text-[28px] text-white md:text-[42px] uppercase leading-tight md:leading-[1.02] tracking-[-0.02em]">
+          <h1 className="px-2 xs:px-3 font-roboto-condensed font-bold text-[24px] text-white xs:text-[28px] sm:text-[32px] md:text-[36px] lg:text-[42px] uppercase leading-tight md:leading-[1.02] lg:leading-[1.05] tracking-[-0.02em]">
             dolor sit amet consectetur. Quis adipiscing purus egestas aliquam
             viverra mi. dolor sit amet consectetur. Quis adipiscing
           </h1>
         </motion.div>
       </motion.section>
 
-      <section className="bg-white">
-        <div className="space-y-10 mx-auto px-6 md:px-12 container">
-          <h1 className="font-roboto-condensed font-bold text-[#222222] text-[28px] sm:text-[32px] md:text-[42px] text-center uppercase leading-tight tracking-[-0.02em]">
+      <section className="bg-white py-8 xs:py-10 sm:py-12">
+        <div className="space-y-8 xs:space-y-10 sm:space-y-12 mx-auto px-4 xs:px-6 sm:px-6 md:px-10 lg:px-12 xl:px-16 container">
+          <h1 className="font-roboto-condensed font-bold text-[#222222] text-[24px] xs:text-[28px] sm:text-[32px] md:text-[36px] lg:text-[42px] text-center uppercase leading-tight tracking-[-0.02em]">
             REQUEST A QUOTE
           </h1>
 
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
-              className="space-y-6 mx-auto md:max-w-4xl"
+              className="space-y-4 xs:space-y-6 mx-auto md:max-w-3xl lg:max-w-4xl xl:max-w-5xl"
             >
-              <div className="gap-6 grid grid-cols-1 md:grid-cols-2">
+              <div className="gap-4 xs:gap-6 grid grid-cols-1 md:grid-cols-2">
                 <FormField
                   control={form.control}
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="mb-2 font-normal text-xs sm:text-sm">
+                      <FormLabel className="mb-1 xs:mb-2 font-normal text-xs xs:text-sm">
                         Name
                       </FormLabel>
                       <FormControl>
@@ -165,7 +165,7 @@ export default function QuoteForm() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="mb-2 font-normal text-xs sm:text-sm">
+                      <FormLabel className="mb-1 xs:mb-2 font-normal text-xs xs:text-sm">
                         E-mail
                       </FormLabel>
                       <FormControl>
@@ -181,7 +181,7 @@ export default function QuoteForm() {
                   name="phone"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="mb-2 font-normal text-xs sm:text-sm">
+                      <FormLabel className="mb-1 xs:mb-2 font-normal text-xs xs:text-sm">
                         Phone Number
                       </FormLabel>
                       <FormControl>
@@ -197,7 +197,7 @@ export default function QuoteForm() {
                   name="timeframe"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="flex gap-0 mb-2 font-normal text-xs sm:text-sm">
+                      <FormLabel className="flex gap-0 mb-1 xs:mb-2 font-normal text-xs xs:text-sm">
                         Time Frame<p className="text-red-600">*</p>
                       </FormLabel>
                       <FormControl>
@@ -232,7 +232,7 @@ export default function QuoteForm() {
                   name="size"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="flex gap-0 mb-2 font-normal text-xs sm:text-sm">
+                      <FormLabel className="flex gap-0 mb-1 xs:mb-2 font-normal text-xs xs:text-sm">
                         Size<p className="text-red-600">*</p>
                       </FormLabel>
                       <FormControl>
@@ -261,7 +261,7 @@ export default function QuoteForm() {
                   name="quantity"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="flex gap-0 mb-2 font-normal text-xs sm:text-sm">
+                      <FormLabel className="flex gap-0 mb-1 xs:mb-2 font-normal text-xs xs:text-sm">
                         Quantity<p className="text-red-600">*</p>
                       </FormLabel>
 
@@ -292,14 +292,14 @@ export default function QuoteForm() {
                 name="description"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="flex gap-0 mb-2 font-normal text-xs sm:text-sm">
+                    <FormLabel className="flex gap-0 mb-1 xs:mb-2 font-normal text-xs xs:text-sm">
                       Please Describe Your Project
                       <p className="text-red-600">*</p>
                     </FormLabel>
                     <FormControl>
                       <Textarea
                         placeholder="Choose a project type"
-                        className="min-h-[180px] resize-vertical"
+                        className="min-h-[140px] xs:min-h-[160px] sm:min-h-[180px] resize-vertical"
                         {...field}
                       />
                     </FormControl>
@@ -308,7 +308,7 @@ export default function QuoteForm() {
                 )}
               />
 
-              <p className="md:pt-6 text-[#666] text-sm text-center">
+              <p className="md:pt-4 lg:pt-6 text-[#666] text-xs xs:text-sm text-center">
                 By submitting this form you agree to our{" "}
                 <a
                   className="underline"
@@ -330,10 +330,10 @@ export default function QuoteForm() {
                 .
               </p>
 
-              <div className="flex justify-center">
+              <div className="flex justify-center pt-2 xs:pt-4">
                 <Button
                   type="submit"
-                  className="bg-[#1959AC] hover:bg-[#154A8C] px-6 py-3 rounded text-white"
+                  className="bg-[#1959AC] hover:bg-[#154A8C] px-4 xs:px-5 sm:px-6 py-2.5 xs:py-3 rounded text-white text-sm xs:text-base"
                 >
                   Loerum Ipsum &nbsp;→
                 </Button>
@@ -348,22 +348,25 @@ export default function QuoteForm() {
         whileInView="show"
         viewport={{ once: true, amount: 0.15 }}
         variants={container1}
-        className="bg-[#F3F3F3] my-12 md:my-36 w-full"
+        className="bg-[#F3F3F3] my-8 xs:my-10 sm:my-12 md:my-24 lg:my-32 xl:my-36 w-full"
       >
-        <div className="mx-auto px-6 md:px-16 container">
-          <div className="items-center gap-8 grid grid-cols-1 lg:grid-cols-12">
-            <motion.div variants={item} className="lg:col-span-6 py-8 md:py-20">
-              <p className="mb-3 font-semibold text-[#0546D2] text-xl sm:text-2xl tracking-[-0.04em]">
+        <div className="mx-auto px-4 xs:px-6 sm:px-6 md:px-14 lg:px-16 xl:px-20 container">
+          <div className="items-center gap-6 xs:gap-8 grid grid-cols-1 lg:grid-cols-12">
+            <motion.div
+              variants={item}
+              className="lg:col-span-6 py-6 xs:py-8 sm:py-10 md:py-16 lg:py-18 xl:py-20"
+            >
+              <p className="mb-2 xs:mb-3 font-semibold text-[#0546D2] text-lg xs:text-xl sm:text-2xl tracking-[-0.04em]">
                 Lorem Ipsum
               </p>
 
-              <h2 className="mb-4 font-roboto-condensed font-bold text-[#222222] text-[28px] sm:text-[32px] md:text-[42px] leading-tight tracking-[-0.02em]">
+              <h2 className="mb-3 xs:mb-4 font-roboto-condensed font-bold text-[#222222] text-[24px] xs:text-[28px] sm:text-[32px] md:text-[36px] lg:text-[42px] leading-tight tracking-[-0.02em]">
                 Lorem Ipsum Dolor
                 <br />
                 Sit Amet
               </h2>
 
-              <p className="mb-6 max-w-2xl text-base md:text-lg leading-[25px]">
+              <p className="mb-4 xs:mb-6 max-w-2xl text-sm xs:text-base sm:text-lg md:text-lg leading-[1.4] xs:leading-[1.5] sm:leading-[25px]">
                 Lorem ipsum dolor sit amet consectetur. Vulputate amet aliquet
                 morbi suspendisse convallis. Urna a urna lectus donec felis
                 risus duis pellentesque. Pellentesque ultricies ipsum.
@@ -371,22 +374,24 @@ export default function QuoteForm() {
 
               <motion.div
                 variants={item}
-                className="flex items-center gap-4 mt-10"
+                className="flex items-center gap-3 xs:gap-4 mt-8 xs:mt-10 sm:mt-12"
               >
-                <div className="w-[140px] h-auto">
+                <div className="w-[120px] xs:w-[130px] sm:w-[140px] md:w-[140px] h-auto">
                   <Image
                     src="/google.png"
                     alt="Get it on Google Play"
-                    width={130}
-                    height={44}
+                    width={120}
+                    height={40}
+                    className="w-full h-auto"
                   />
                 </div>
-                <div className="w-[130px] h-auto">
+                <div className="w-[110px] xs:w-[120px] sm:w-[130px] md:w-[140px] h-auto">
                   <Image
                     src="/apple.png"
                     alt="Download on the App Store"
-                    width={140}
-                    height={44}
+                    width={110}
+                    height={40}
+                    className="w-full h-auto"
                   />
                 </div>
               </motion.div>
@@ -402,6 +407,7 @@ export default function QuoteForm() {
                 fill
                 className="object-cover"
                 priority
+                sizes="(max-width: 1024px) 50vw, 40vw"
               />
             </motion.div>
           </div>
