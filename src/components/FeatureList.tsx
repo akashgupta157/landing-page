@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { easeOut, motion } from "framer-motion";
-import { useEffect, useState } from "react";
 
 const features = [
   {
@@ -40,17 +39,6 @@ const item = {
 };
 
 export default function FeatureList() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
-
   return (
     <motion.section
       initial="hidden"
@@ -247,11 +235,6 @@ export default function FeatureList() {
               scale: 1.02,
               transition: { duration: 0.3 },
             }}
-            style={{
-              transform: `translate(${
-                (mousePosition.x - window.innerWidth / 2) * 0.01
-              }px, ${(mousePosition.y - window.innerHeight / 2) * 0.01}px)`,
-            }}
             className="hidden md:flex justify-center md:col-span-5 mt-8 xs:mt-10"
           >
             <div className="relative shadow-lg w-full md:w-[380px] lg:w-[450px] xl:w-[520px] h-[380px] md:h-[480px] lg:h-[520px] xl:h-[560px] overflow-hidden">
@@ -284,7 +267,7 @@ export default function FeatureList() {
           </motion.div>
         </div>
       </div>
-      <div className="bg-white md:pl-20 lg:pl-22 xl:pl-24">
+      <div className="bg-white mt-5 sm:mt-0 md:pl-20 lg:pl-22 xl:pl-24">
         <div className="bg-linear-to-r from-[#043898] via-[#079902] to-[#170041] w-full h-4 xs:h-5" />
       </div>
     </motion.section>
