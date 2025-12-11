@@ -54,7 +54,7 @@ export default function HeroSection() {
       viewport={{ once: true, amount: 0.2 }}
       className="flex items-center bg-white min-h-screen overflow-hidden"
     >
-      <div className="mx-auto px-4 sm:px-6 md:px-16 container">
+      <div className="mx-auto px-4 sm:px-6 md:px-0 lg:px-16 container">
         <div className="items-center gap-6 sm:gap-8 grid grid-cols-1 md:grid-cols-12">
           <motion.div
             variants={stagger}
