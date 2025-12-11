@@ -72,7 +72,7 @@ export default function ContentCards() {
           whileInView="show"
           viewport={{ once: true, amount: 0.15 }}
           variants={container}
-          className="gap-6 xs:gap-8 sm:gap-10 md:gap-12 lg:gap-14 grid grid-cols-1 md:grid-cols-2 mx-auto mt-8 xs:mt-10 sm:mt-12 md:mt-16 lg:mt-18 xl:mt-20 lg:w-[75%] xl:w-[80%]"
+          className="gap-6 xs:gap-8 sm:gap-10 md:gap-12 lg:gap-18 grid grid-cols-1 md:grid-cols-2 mx-auto mt-8 xs:mt-10 sm:mt-12 md:mt-16 lg:mt-18 xl:mt-20 lg:w-[80%] xl:w-[85%]"
         >
           {cards.map((c, idx) => (
             <motion.article

@@ -23,6 +23,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
+import { toast } from "sonner";
 
 const formSchema = z.object({
   name: z.string().min(2, "Please enter your name (min 2 characters)"),
@@ -86,7 +87,8 @@ export default function QuoteForm() {
   });
 
   function onSubmit(values: FormSchema) {
-    // form.reset();
+    toast.success("Your quote request is in! We’ll get back to you shortly");
+    form.reset();
   }
 
   return (

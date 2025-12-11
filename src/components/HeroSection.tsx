@@ -1,10 +1,20 @@
 "use client";
 
+import { z } from "zod";
 import Image from "next/image";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
+import { useForm } from "react-hook-form";
 import { easeOut, motion } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { toast } from "sonner";
+
+const formSchema = z.object({
+  email: z.string().email("Please enter a valid email"),
+});
+
+type FormSchema = z.infer<typeof formSchema>;
 
 export default function HeroSection() {
   const containerVariants = {
@@ -23,6 +33,20 @@ export default function HeroSection() {
       transition: { duration: 0.45, ease: easeOut },
     },
   };
+
+  const form = useForm<FormSchema>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      email: "",
+    },
+    mode: "onTouched",
+  });
+
+  async function onSubmit(values: FormSchema) {
+    toast.success("You're all set! Check your inbox for a confirmation.");
+    form.reset();
+  }
+
   return (
     <motion.section
       initial="hidden"
@@ -34,18 +58,35 @@ export default function HeroSection() {
         <div className="items-center gap-6 sm:gap-8 grid grid-cols-1 md:grid-cols-12">
           <motion.div
             variants={stagger}
-            className="md:col-span-6 mt-24 xs:mt-28 sm:mt-36 w-full"
+            className="md:col-span-6 mt-12 xs:mt-14 sm:mt-18 md:mt-24 w-full"
           >
+            <motion.div
+              variants={item}
+              className="md:hidden block mb-6 sm:mb-8"
+              aria-hidden="true"
+            >
+              <div className="relative mx-auto rounded-lg w-full max-w-[720px] h-44 sm:h-56 overflow-hidden">
+                <Image
+                  src="/hero_img.webp"
+                  alt="Decorative hero"
+                  fill
+                  priority
+                  className="object-center object-cover"
+                  sizes="100vw"
+                />
+              </div>
+            </motion.div>
+
             <motion.h1
               variants={item}
-              className="font-roboto-condensed font-bold text-[#222222] text-[28px] xs:text-[32px] sm:text-[36px] md:text-[42px] lg:text-[48px] xl:text-[64px] leading-[1.2] sm:leading-[1.3] md:leading-[1.25] lg:leading-[1.2] xl:leading-[70px] tracking-[-0.02em]"
+              className="font-roboto-condensed font-bold text-[#222222] text-[26px] xs:text-[30px] sm:text-[34px] md:text-[42px] lg:text-[48px] xl:text-[64px] leading-[1.18] sm:leading-[1.25] md:leading-[1.25] tracking-[-0.02em]"
             >
               Lorem ipsum dolor sit amet
             </motion.h1>
 
             <motion.p
               variants={item}
-              className="mt-4 text-sm xs:text-base sm:text-lg leading-[1.5] sm:leading-[25px]"
+              className="mt-3 text-sm xs:text-base sm:text-lg leading-[1.45] sm:leading-[1.6]"
             >
               Lorem ipsum dolor sit amet consectetur. Enim netus cras congue
               quis elit sociis. Sed mi rhoncus id habitant. In urna tellus nisi
@@ -56,24 +97,41 @@ export default function HeroSection() {
 
             <motion.form
               variants={containerVariants}
-              className="flex sm:flex-row flex-col items-start sm:items-center gap-3 mt-8 sm:mt-10 md:mt-12"
-              onSubmit={(e) => e.preventDefault()}
+              className="flex sm:flex-row flex-col items-start sm:items-center gap-3 mt-6 sm:mt-8 md:mt-10"
+              onSubmit={form.handleSubmit(onSubmit)}
               aria-label="Newsletter form"
+              noValidate
             >
               <motion.div variants={item} className="w-full sm:w-auto">
                 <Input
+                  type="email"
                   aria-label="Email address"
                   placeholder="Enter your email"
-                  className="px-4 py-4 sm:py-5 border border-[#C3C3C3] rounded w-full sm:min-w-[280px] md:min-w-xs"
+                  autoComplete="email"
+                  className="px-4 py-4 sm:py-5 border border-[#C3C3C3] rounded w-full sm:min-w-[280px] md:min-w-xs text-sm sm:text-base"
+                  {...form.register("email")}
+                  aria-invalid={form.formState.errors.email ? "true" : "false"}
                 />
+                {form.formState.errors.email?.message && (
+                  <p
+                    role="alert"
+                    className="mt-2 text-red-600 text-xs"
+                    aria-live="polite"
+                  >
+                    {form.formState.errors.email.message}
+                  </p>
+                )}
               </motion.div>
 
               <motion.div variants={item} className="w-full sm:w-auto">
                 <Button
                   type="submit"
                   size="lg"
-                  className="flex justify-center items-center gap-2.5 bg-[#1959AC] hover:bg-[#154A8C] shadow-[0_4px_20px_0_rgba(0,0,0,0.15)] px-5 sm:px-6 py-2.5 rounded w-full sm:w-auto font-bold text-white text-sm sm:text-base transition-colors"
+                  className="flex justify-center items-center gap-2.5 bg-[#1959AC] hover:bg-[#154A8C] shadow-[0_4px_20px_0_rgba(0,0,0,0.15)] px-5 sm:px-6 py-3 rounded w-full sm:w-auto font-bold text-white text-sm sm:text-base transition-colors"
+                  aria-disabled={form.formState.isSubmitting}
+                  disabled={form.formState.isSubmitting}
                 >
+                  <span className="sr-only">Subscribe</span>
                   Submit <ArrowRight className="size-4 sm:size-5" />
                 </Button>
               </motion.div>
@@ -83,7 +141,7 @@ export default function HeroSection() {
               variants={item}
               className="flex justify-center sm:justify-start items-center gap-3 mt-4 sm:mt-5"
             >
-              <div className="flex justify-center items-center bg-[#155ADA] rounded-full size-6 sm:size-6.5 md:size-7.5">
+              <div className="flex justify-center items-center bg-[#155ADA] p-1 rounded-full size-7 sm:size-6.5 md:size-7.5">
                 <Check size={14} className="text-white" strokeWidth={2.5} />
               </div>
               <p className="font-medium text-xs sm:text-sm md:text-base">

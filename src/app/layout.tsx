@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Toaster } from "@/components/ui/sonner";
 import { Inter, Roboto_Condensed } from "next/font/google";
 import "./globals.css";
 
@@ -28,6 +29,7 @@ export default function RootLayout({
         className={`${robotoCondensed.variable} ${inter.variable} antialiased`}
       >
         {children}
+        <Toaster />
       </body>
     </html>
   );

@@ -17,22 +17,22 @@ import Link from "next/link";
 const testimonials = [
   {
     icon: "/icon-cloud.png",
-    text: "Purus maecenas quis elit eu, aliquet. Tellus porttitor ut sollicitudin sit non fringilla. Quam nunc volutpat senectus neque eget amet pharetra, euismod.",
+    text: "Purus maecenas quis elit eu, aliquet. Tellus porttitor ut sollicitudin sit non fringilla. Quam nunc volutpat senectus neque eget amet pharetra, euismod. Tempus, nunc, molestie imperdiet curabitur commodo euismod.",
     name: "Jane Cooper",
   },
   {
     icon: "/icon-stars.png",
-    text: "Vehicula sit sit pharetra bibendum ut risus accumsan. Purus, in metus enim, ipsum morbi euismod pellentesque. Mattis pharetra accumsan eget est mi enim.",
+    text: "Vehicula sit sit pharetra bibendum ut risus accumsan. Purus, in metus, enim, ipsum morbi euismod pellentesque. Mattis pharetra accumsan eget est mi enim, id. Sit quam tortor eu tellus non, in euismod integer.",
     name: "Ralph Edwards",
   },
   {
     icon: "/icon-vest.png",
-    text: "Viverra lacus suspendisse elit, adipiscing orci non turpis etiam sapien. Viverra blandit sem neque pretium. Duis semper fermentum consequat libero.",
+    text: "Viverra lacus suspendisse elit, adipiscing orci, non turpis etiam sapien. Viverra blandit sem neque pretium. Duis enim semper fermentum consequat aenean libero. Blandit porta leo condimentum dolor, nisi, aliquet ante laoreet.",
     name: "Courtney Henry",
   },
   {
     icon: "/icon-timer.png",
-    text: "Hendrerit augue ut neque vitae, quis integer netus. Rhoncus habitasse amet egestas lorem suscipit phasellus urna.",
+    text: "Hendrerit augue ut nec, senectus quis integer netus. Sagittis fusce rhoncus magnis habitant amet amet. Egestas amet habitasse amet risus tellus ornare. Hendrerit augue ut nec, senectus. Mauris egestas feugiat leo vitae praesent neque, et.",
     name: "Cameron Williamson",
   },
 ];
@@ -62,7 +62,7 @@ export default function TestimonialCarousel() {
         viewport={{ once: true }}
         className="relative bg-[#155ADA] w-full overflow-hidden text-white"
       >
-        <div className="mx-auto px-4 xs:px-6 sm:px-6 md:px-14 lg:px-16 py-8 xs:py-10 sm:py-12 md:py-16 lg:py-18 xl:py-20 xl:max-w-8xl max-w-6xl lg:max-w-7xl">
+        <div className="px-4 xs:px-6 sm:px-6 md:px-14 lg:px-16 py-8 xs:py-10 sm:py-12 md:py-16 lg:py-18 xl:py-20">
           <div className="flex md:flex-row flex-col justify-between items-start md:items-center gap-4 xs:gap-6 sm:gap-6 md:gap-0">
             <div className="w-full md:max-w-2xl lg:max-w-3xl">
               <p className="mb-2 xs:mb-3 font-semibold text-base xs:text-lg sm:text-xl md:text-2xl tracking-[-0.02em]">
@@ -98,11 +98,11 @@ export default function TestimonialCarousel() {
               }}
               className="w-full"
             >
-              <CarouselContent className="-ml-4">
+              <CarouselContent className="gap-4 -ml-4">
                 {testimonials.map((t, idx) => (
                   <CarouselItem
                     key={idx}
-                    className="pl-4 basis-[85%] xs:basis-[80%] sm:basis-[70%] md:basis-[45%] lg:basis-[35%] xl:basis-[30%] 2xl:basis-[28%]"
+                    className="pl-4 basis-[85%] xs:basis-[80%] sm:basis-[70%] md:basis-[45%] lg:basis-[35%] xl:basis-[28%]"
                   >
                     <div className="flex flex-col bg-white shadow-lg p-4 xs:p-5 sm:p-6 rounded-lg h-full text-[#0f172a]">
                       <Image
@@ -165,7 +165,7 @@ export default function TestimonialCarousel() {
         variants={section}
         className="bg-white w-full"
       >
-        <div className="mx-auto px-4 xs:px-6 sm:px-6 md:px-14 lg:px-16 py-8 xs:py-10 sm:py-12 md:py-16 lg:py-18 xl:py-20 container">
+        <div className="px-4 xs:px-6 sm:px-6 md:px-14 lg:px-16 py-8 xs:py-10 sm:py-12 md:py-16 lg:py-18 xl:py-20 w-full">
           <div className="items-center gap-6 xs:gap-8 sm:gap-10 md:gap-14 grid grid-cols-1 lg:grid-cols-12">
             <div className="lg:col-span-6">
               <h2 className="mb-4 xs:mb-5 sm:mb-6 font-roboto-condensed font-bold text-[#0F172A] text-[24px] xs:text-[28px] sm:text-[32px] md:text-[36px] lg:text-[42px] uppercase leading-tight tracking-[-0.02em]">
